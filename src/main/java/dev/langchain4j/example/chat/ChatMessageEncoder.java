@@ -15,7 +15,6 @@ public class ChatMessageEncoder implements Encoder.Text<String> {
         message = message.replaceAll("\n", "<br/>");
 
         return message;
-
     }
 
 }

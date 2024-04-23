@@ -21,7 +21,7 @@ public class ChatService {
     private static Logger logger = Logger.getLogger(ChatService.class.getName());
 
     @Inject
-    ChatAgent agent = null;
+    ChatAgent agent;
 
     @OnOpen
     public void onOpen(Session session) {
@@ -39,9 +39,7 @@ public class ChatService {
         String answer;
         try {
             String sessionId = session.getId();
-            // System.out.println("Calling agent.chat with sessionId: " + sessionId + " and message: " + message   );
             answer = agent.chat(sessionId, message);
-            // System.out.println("Agent called successfully.");
         } catch (Exception e) {
             answer = "My failure reason is:\n\n" + e.getMessage();
         }
